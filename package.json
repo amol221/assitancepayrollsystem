@@ -17,7 +17,9 @@
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^6.1.0",
     "mongoose": "^6.7.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "react-chartist": "^0.14.4"
   }
 }

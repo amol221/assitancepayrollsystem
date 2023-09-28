@@ -24,6 +24,22 @@ const userSchema = mongoose.Schema({
         type:Number,
         required:true,
     },
+    batch:{
+        type:String,
+        required:true,
+    },
+    city:{
+        type:String,
+        required:true,
+    },
+    dob:{
+        type:String,
+        required:true,
+    },
+    aadhar:{
+        type:Number,
+        required:true,
+    },
 },
 {
     timestamp:true,

@@ -1,11 +1,11 @@
 
 const asyncHandler = require('express-async-handler')
-const User = require("../models/userModel");
+const User = require("../middlewares/models/userModel");
 const generateToken = require('../utils/generateToken');
 
 
 const registerUser = asyncHandler(async(req,res)=>{
-    const{ name ,email ,password, mobno} =req.body;
+    const{ name ,email ,password, mobno,batch ,city,dob ,aadhar} =req.body;
     
     const userExists =await User.findOne({ email});
    
@@ -19,6 +19,10 @@ const registerUser = asyncHandler(async(req,res)=>{
         email,
         password,
         mobno,
+        batch,
+        city,
+        aadhar,
+        dob,
     });
        
        if(user){
@@ -29,6 +33,9 @@ const registerUser = asyncHandler(async(req,res)=>{
             email:user.email,
             isAdmin:user.isAdmin,
             mobno:user.mobno,
+            batch:user.batch,
+            city:user.city,
+            aadhar:user.aadhar,
             token:generateToken(user._id),
 
         });
@@ -57,6 +64,10 @@ if(user &&(await user.matchPassword(password))){
         email:user.email,
         isAdmin:user.isAdmin,
         mobno:user.mobno,
+        batch:user.batch,
+        city:user.city,
+        dob:user.dob,
+        aadhar:user.aadhar,
         token:generateToken(user._id),
 
 
